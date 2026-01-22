@@ -4,7 +4,6 @@ mqtt:
 # Auth - Seguridad
 auth:
   enabled: true
-  reset_admin_password: true
 
 # Configuración de los detectores
 detectors:
