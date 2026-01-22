@@ -1,0 +1,72 @@
+# Configuración global de MQTT (opcional, útil para n8n más adelante)
+mqtt:
+  enabled: False
+
+# Configuración de los detectores (usando la potencia de tu Xeon E5-2680 v4)
+detectors:
+  ov:
+    type: cpu # Al no tener TPU Coral aún, usamos los núcleos del Xeon
+
+# Configuración global de grabación
+record:
+  enabled: True
+  retain:
+    days: 7 # Retención de grabaciones por 7 días
+    mode: all
+  events:
+    retain:
+      default: 15 # Guardar clips de eventos (personas) por 15 días
+      mode: active_objects
+
+# Configuración de cámaras por sucursal
+cameras:
+  sucursal_01: # Ejemplo: Casa Central
+    enabled: True
+    ffmpeg:
+      inputs:
+        # Stream para detección (Baja resolución para no saturar el Xeon)
+        - path: rtsp://user:pass@IP_O_DOMINIO:554/cam/realmonitor?channel=1&subtype=1
+          roles:
+            - detect
+        # Stream para grabación (Alta resolución)
+        - path: rtsp://user:pass@IP_O_DOMINIO:554/cam/realmonitor?channel=1&subtype=0
+          roles:
+            - record
+    detect:
+      width: 1280 # Ajustar según el sub-stream de tu DVR
+      height: 720
+      fps: 5 # 5 FPS es suficiente para contar personas y ahorra CPU
+    
+    # Lógica de Conteo de Personas
+    zones:
+      entrada_sucursal:
+        coordinates: 457,720,832,720,805,432,514,435 # Dibuja tu puerta aquí
+        objects:
+          - person
+    
+    # Filtros para evitar falsos positivos (sombras, reflejos)
+    objects:
+      track:
+        - person
+      filters:
+        person:
+          min_area: 5000 # Tamaño mínimo en píxeles para ser una persona
+          max_area: 100000
+          threshold: 0.7 # 70% de confianza de la IA
+
+  sucursal_02:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://user:pass@IP_SUCURSAL_2:554/cam/realmonitor?channel=1&subtype=1
+          roles:
+            - detect
+        - path: rtsp://user:pass@IP_SUCURSAL_2:554/cam/realmonitor?channel=1&subtype=0
+          roles:
+            - record
+    # Copiar lógica de zonas para sucursal 2...
+
+# Interfaz Web de Frigate
+ui:
+  dashboard:
+    show_stats: True
