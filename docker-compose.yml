@@ -8,3 +8,4 @@ services:
       - /mnt/storage/frigate:/media/frigate # Donde guardas el video en el ProLiant
     ports:
       - "5000:5000"
+      - "8971:8971" # Puerto para acceso con contraseña
