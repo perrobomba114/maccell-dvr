@@ -3,7 +3,7 @@ mqtt:
 
 # Auth - Seguridad
 auth:
-  enabled: True
+  enabled: true
 
 # Configuración de los detectores
 detectors:
