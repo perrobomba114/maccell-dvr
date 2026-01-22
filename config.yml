@@ -2,21 +2,23 @@
 mqtt:
   enabled: False
 
-# Configuración de los detectores (usando la potencia de tu Xeon E5-2680 v4)
+# Configuración de los detectores
 detectors:
   ov:
-    type: cpu # Al no tener TPU Coral aún, usamos los núcleos del Xeon
+    type: cpu
 
 # Configuración global de grabación
 record:
   enabled: True
   retain:
-    days: 7 # Retención de grabaciones por 7 días
+    days: 7
     mode: all
-  events:
-    retain:
-      default: 15 # Guardar clips de eventos (personas) por 15 días
-      mode: active_objects
+
+# Snapshots (Imágenes fijas de eventos)
+snapshots:
+  enabled: True
+  retain:
+    default: 15 # Días
 
 # Configuración de cámaras por sucursal
 cameras:
@@ -24,7 +26,7 @@ cameras:
     enabled: True
     ffmpeg:
       inputs:
-        # Stream para detección (Baja resolución para no saturar el Xeon)
+        # Stream para detección (Baja resolución)
         - path: rtsp://user:pass@IP_O_DOMINIO:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
@@ -33,26 +35,26 @@ cameras:
           roles:
             - record
     detect:
-      width: 1280 # Ajustar según el sub-stream de tu DVR
+      width: 1280
       height: 720
-      fps: 5 # 5 FPS es suficiente para contar personas y ahorra CPU
+      fps: 5
     
     # Lógica de Conteo de Personas
     zones:
       entrada_sucursal:
-        coordinates: 457,720,832,720,805,432,514,435 # Dibuja tu puerta aquí
+        coordinates: 457,720,832,720,805,432,514,435
         objects:
           - person
     
-    # Filtros para evitar falsos positivos (sombras, reflejos)
+    # Filtros
     objects:
       track:
         - person
       filters:
         person:
-          min_area: 5000 # Tamaño mínimo en píxeles para ser una persona
+          min_area: 5000
           max_area: 100000
-          threshold: 0.7 # 70% de confianza de la IA
+          threshold: 0.7
 
   sucursal_02:
     enabled: True
@@ -64,9 +66,3 @@ cameras:
         - path: rtsp://user:pass@IP_SUCURSAL_2:554/cam/realmonitor?channel=1&subtype=0
           roles:
             - record
-    # Copiar lógica de zonas para sucursal 2...
-
-# Interfaz Web de Frigate
-ui:
-  dashboard:
-    show_stats: True
