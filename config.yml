@@ -1,6 +1,9 @@
-# Configuración global de MQTT (opcional, útil para n8n más adelante)
 mqtt:
   enabled: False
+
+# Auth - Seguridad
+auth:
+  enabled: True
 
 # Configuración de los detectores
 detectors:
