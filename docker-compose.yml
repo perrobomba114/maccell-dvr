@@ -5,6 +5,7 @@ services:
     shm_size: "512mb"
     volumes:
       - ./config.yml:/config/config.yml:ro # Tu lógica de conteo aquí
+      - ./frigate_db:/db # Base de datos persistente (Usuarios, configuración)
       - /mnt/storage/frigate:/media/frigate # Donde guardas el video en el ProLiant
     ports:
       - "5000:5000"
