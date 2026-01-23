@@ -1,305 +1,225 @@
 mqtt:
   enabled: False
 
-# Auth - Seguridad
-auth:
-  enabled: true
+logger:
+  default: info
+  logs:
+    frigate.mqtt: error
 
-# Configuración de los detectores
 detectors:
   ov:
     type: cpu
 
-# Configuración global de grabación
+ffmpeg:
+  hwaccel_args: preset-vaapi # Clave para tu servidor Xeon
+
+# --- GO2RTC: El motor que gestiona el HD ---
+go2rtc:
+  streams:
+    # SUCURSAL 1
+    m1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
+    m1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
+    m1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
+    m1_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
+    m1_03: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
+    m1_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
+    m1_04: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
+    m1_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
+    m1_05: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
+    m1_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
+    m1_06: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
+    m1_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
+    m1_07: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
+    m1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
+    m1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
+    m1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
+    # SUCURSAL 2
+    m2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
+    m2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
+    m2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+    m2_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
+    m2_03: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
+    m2_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
+    m2_04: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+    m2_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
+    m2_05: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
+    m2_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
+    m2_06: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+    m2_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
+    m2_07: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
+    m2_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
+    m2_08: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+    m2_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
+
+cameras:
+  # --- MACCELL 1 ---
+  MACCELL_1_01:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_01_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_01
+          roles: [record]
+    detect: &detect_params
+      width: 352
+      height: 288
+      fps: 5
+
+  MACCELL_1_02:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_02_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_02
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_03:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_03_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_03
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_04:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_04_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_04
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_05:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_05_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_05
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_06_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_06
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_07:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_07_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_07
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_1_08:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m1_08_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m1_08
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  # --- MACCELL 2 ---
+  MACCELL_2_01:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_01_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_01
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_02:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_02_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_02
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_03:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_03_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_03
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_04:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_04_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_04
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_05:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_05_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_05
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_06_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_06
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_07:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_07_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_07
+          roles: [record]
+    detect:
+      <<: *detect_params
+
+  MACCELL_2_08:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/m2_08_sd
+          roles: [detect]
+        - path: rtsp://127.0.0.1:8554/m2_08
+          roles: [record]
+    detect:
+      <<: *detect_params
+
 record:
   enabled: False
-  retain:
-    days: 0
-    mode: all
 
-# Snapshots (Imágenes fijas de eventos)
 snapshots:
   enabled: True
   retain:
-    default: 15 # Días
-
-# Go2RTC - Motor de Streaming para ver en HD
-go2rtc:
-  streams:
-    # Cámara 1
-    cam_01_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
-    cam_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
-    # Cámara 2
-    cam_02_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
-    cam_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
-    # Cámara 3
-    cam_03_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
-    cam_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
-    # Cámara 4
-    cam_04_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
-    cam_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
-    # Cámara 5
-    cam_05_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
-    cam_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
-    # Cámara 6
-    cam_06_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
-    cam_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
-    # Cámara 7
-    cam_07_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
-    cam_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
-    # Cámara 8
-    cam_08_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
-    cam_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
-
-    # --- SUCURSAL 2 (IP: 192.168.0.45) ---
-    # Cámara 1
-    sucursal2_cam_01_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
-    sucursal2_cam_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
-    # Cámara 2
-    sucursal2_cam_02_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
-    sucursal2_cam_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
-    # Cámara 3
-    sucursal2_cam_03_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
-    sucursal2_cam_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
-    # Cámara 4
-    sucursal2_cam_04_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
-    sucursal2_cam_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
-    # Cámara 5
-    sucursal2_cam_05_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
-    sucursal2_cam_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
-    # Cámara 6
-    sucursal2_cam_06_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
-    sucursal2_cam_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
-    # Cámara 7
-    sucursal2_cam_07_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
-    sucursal2_cam_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
-    # Cámara 8
-    sucursal2_cam_08_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
-    sucursal2_cam_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
-
-# Configuración de cámaras
-cameras:
-  cam_01:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_01_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_01_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_02:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_02_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_02_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_03:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_03_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_03_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_04:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_04_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_04_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_05:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_05_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_05_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_06:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_06_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_06_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_07:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_07_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_07_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  cam_08:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/cam_08_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/cam_08_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  # --- SUCURSAL 2 CÁMARAS ---
-  sucursal2_cam_01:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_01_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_01_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_02:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_02_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_02_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_03:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_03_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_03_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_04:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_04_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_04_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_05:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_05_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_05_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_06:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_06_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_06_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_07:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_07_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_07_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
-
-  sucursal2_cam_08:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_08_sd
-          roles: ['detect']
-        - path: rtsp://127.0.0.1:8554/sucursal2_cam_08_hd
-          roles: ['record']
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track: ['person']
+    default: 15
