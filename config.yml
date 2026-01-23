@@ -33,51 +33,51 @@ go2rtc:
     MACCELL_1_01: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0"
     MACCELL_1_01_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1"
     
-    MACCELL_1_02: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_02_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_02: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0"
+    MACCELL_1_02_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1"
     
-    MACCELL_1_03: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_03_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_03: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0"
+    MACCELL_1_03_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1"
     
-    MACCELL_1_04: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_04_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_04: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0"
+    MACCELL_1_04_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1"
     
-    MACCELL_1_05: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_05_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_05: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0"
+    MACCELL_1_05_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1"
     
-    MACCELL_1_06: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_06_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_06: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0"
+    MACCELL_1_06_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1"
     
-    MACCELL_1_07: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_07_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_07: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0"
+    MACCELL_1_07_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1"
     
-    MACCELL_1_08: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_08_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_08: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0"
+    MACCELL_1_08_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1"
 
     # --- SUCURSAL 2 (Remota - 192.168.0.45) ---
-    MACCELL_2_01: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_01_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1#video=copy#audio=copy#transport=tcp"
+    MAXCELL_2_01: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0"
+    MACCELL_2_01_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1"
     
-    MACCELL_2_02: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_02_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_02: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0"
+    MACCELL_2_02_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1"
     
-    MACCELL_2_03: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_03_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_03: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0"
+    MACCELL_2_03_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1"
     
-    MACCELL_2_04: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_04_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_04: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0"
+    MACCELL_2_04_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1"
     
-    MACCELL_2_05: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_05_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_05: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0"
+    MACCELL_2_05_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1"
     
-    MACCELL_2_06: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_06_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_06: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0"
+    MACCELL_2_06_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1"
     
-    MACCELL_2_07: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_07_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_07: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0"
+    MACCELL_2_07_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1"
     
-    MACCELL_2_08: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_2_08_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_2_08: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0"
+    MACCELL_2_08_sd: "rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1"
 
 cameras:
   # --- MACCELL 1 ---
