@@ -51,6 +51,32 @@ go2rtc:
     cam_08_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
     cam_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
 
+    # --- SUCURSAL 2 (IP: 192.168.0.45) ---
+    # Cámara 1
+    sucursal2_cam_01_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
+    sucursal2_cam_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
+    # Cámara 2
+    sucursal2_cam_02_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+    sucursal2_cam_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
+    # Cámara 3
+    sucursal2_cam_03_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
+    sucursal2_cam_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
+    # Cámara 4
+    sucursal2_cam_04_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+    sucursal2_cam_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
+    # Cámara 5
+    sucursal2_cam_05_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
+    sucursal2_cam_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
+    # Cámara 6
+    sucursal2_cam_06_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+    sucursal2_cam_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
+    # Cámara 7
+    sucursal2_cam_07_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
+    sucursal2_cam_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
+    # Cámara 8
+    sucursal2_cam_08_hd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+    sucursal2_cam_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
+
 # Configuración de cámaras
 cameras:
   cam_01:
@@ -157,6 +183,119 @@ cameras:
         - path: rtsp://127.0.0.1:8554/cam_08_sd
           roles: ['detect']
         - path: rtsp://127.0.0.1:8554/cam_08_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # --- SUCURSAL 2 CÁMARAS ---
+  sucursal2_cam_01:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_01_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_01_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_02:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_02_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_02_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_03:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_03_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_03_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_04:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_04_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_04_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_05:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_05_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_05_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_06_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_06_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_07:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_07_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_07_hd
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  sucursal2_cam_08:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_08_sd
+          roles: ['detect']
+        - path: rtsp://127.0.0.1:8554/sucursal2_cam_08_hd
           roles: ['record']
     detect:
       width: 1280
