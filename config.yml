@@ -4,16 +4,19 @@ database:
 mqtt:
   enabled: False
 
+auth:
+  enabled: True
+
+logger:
+  default: info
+
 detectors:
   ov:
     type: cpu
 
-# ffmpeg section removed
-
-
 go2rtc:
   streams:
-    # SUCURSAL 1
+    # SUCURSAL 1 (Local)
     MACCELL_1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
     MACCELL_1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
     MACCELL_1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
@@ -30,7 +33,8 @@ go2rtc:
     MACCELL_1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
     MACCELL_1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
     MACCELL_1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
-    # SUCURSAL 2
+    
+    # SUCURSAL 2 (Remota)
     MACCELL_2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
     MACCELL_2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
     MACCELL_2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
@@ -56,10 +60,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_01
           roles: [record]
-    detect: &def_detect
+    detect:
       width: 640
       height: 360
       fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_02:
     ffmpeg:
@@ -68,7 +80,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_02
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_03:
     ffmpeg:
@@ -77,7 +100,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_03
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_04:
     ffmpeg:
@@ -86,7 +120,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_04
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_05:
     ffmpeg:
@@ -95,7 +140,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_05
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_06:
     ffmpeg:
@@ -104,7 +160,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_06
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_07:
     ffmpeg:
@@ -113,7 +180,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_07
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_1_08:
     ffmpeg:
@@ -122,7 +200,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_08
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_01:
     ffmpeg:
@@ -131,7 +220,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_01
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_02:
     ffmpeg:
@@ -140,7 +240,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_02
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_03:
     ffmpeg:
@@ -149,7 +260,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_03
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_04:
     ffmpeg:
@@ -158,7 +280,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_04
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_05:
     ffmpeg:
@@ -167,7 +300,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_05
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_06:
     ffmpeg:
@@ -176,7 +320,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_06
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_07:
     ffmpeg:
@@ -185,7 +340,18 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_07
           roles: [record]
-    detect: { <<: *def_detect }
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
 
   MACCELL_2_08:
     ffmpeg:
@@ -194,17 +360,15 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_08
           roles: [record]
-    detect: { <<: *def_detect }
-
-# Global record Config
-record:
-  enabled: False
-  retain:
-    days: 0
-    mode: all
-
-# Global snapshots Config
-snapshots:
-  enabled: True
-  retain:
-    default: 15
+    detect:
+      width: 640
+      height: 360
+      fps: 5
+    record:
+      enabled: False
+    snapshots:
+      enabled: True
+      retain:
+        default: 15
+    objects:
+      track: [person]
