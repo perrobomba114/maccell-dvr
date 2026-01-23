@@ -89,12 +89,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_01
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -109,12 +107,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_02
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -129,12 +125,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_03
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -149,12 +143,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_04
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -169,12 +161,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_05
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -189,12 +179,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_06
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -209,12 +197,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_07
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -229,12 +215,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_08
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -250,12 +234,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_01
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -270,12 +252,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_02
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -290,12 +270,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_03
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -310,12 +288,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_04
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -330,12 +306,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_05
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -350,12 +324,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_06
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -370,12 +342,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_07
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
@@ -390,12 +360,10 @@ cameras:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_08
           roles: []
     detect:
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
-    live:
-      height: 720
-      quality: 31
+    # Live default: uses best stream (HD) via MSE/WebRTC
     objects:
       track: [person]
     snapshots:
