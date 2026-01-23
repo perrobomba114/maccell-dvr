@@ -25,16 +25,16 @@ snapshots:
 
 # Configuración de cámaras por sucursal
 cameras:
-  sucursal_01: # Ejemplo: Casa Central
+  sucursal_01: # MacCell DVR Local
     enabled: True
     ffmpeg:
       inputs:
-        # Stream para detección (Baja resolución)
-        - path: rtsp://user:pass@IP_O_DOMINIO:554/cam/realmonitor?channel=1&subtype=1
+        # Stream para detección (Sub-stream: menor resolución)
+        - path: rtsp://administrador:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
-        # Stream para grabación (Alta resolución)
-        - path: rtsp://user:pass@IP_O_DOMINIO:554/cam/realmonitor?channel=1&subtype=0
+        # Stream para grabación (Main-stream: 1080p)
+        - path: rtsp://administrador:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
           roles:
             - record
     detect:
