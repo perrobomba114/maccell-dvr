@@ -23,16 +23,42 @@ snapshots:
   retain:
     default: 15 # Días
 
-# Configuración de cámaras por sucursal
+# Go2RTC - Motor de Streaming para ver en HD
+go2rtc:
+  streams:
+    # Cámara 1
+    cam_01_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
+    cam_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
+    # Cámara 2
+    cam_02_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
+    cam_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
+    # Cámara 3
+    cam_03_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
+    cam_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
+    # Cámara 4
+    cam_04_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
+    cam_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
+    # Cámara 5
+    cam_05_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
+    cam_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
+    # Cámara 6
+    cam_06_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
+    cam_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
+    # Cámara 7
+    cam_07_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
+    cam_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
+    # Cámara 8
+    cam_08_hd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
+    cam_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
+
+# Configuración de cámaras
 cameras:
-  # Cámara 1
   cam_01:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_01_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_01_hd
           roles: ['record']
     detect:
       width: 1280
@@ -41,14 +67,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 2
   cam_02:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_02_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_02_hd
           roles: ['record']
     detect:
       width: 1280
@@ -57,14 +81,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 3
   cam_03:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_03_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_03_hd
           roles: ['record']
     detect:
       width: 1280
@@ -73,14 +95,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 4
   cam_04:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_04_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_04_hd
           roles: ['record']
     detect:
       width: 1280
@@ -89,14 +109,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 5
   cam_05:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_05_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_05_hd
           roles: ['record']
     detect:
       width: 1280
@@ -105,14 +123,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 6
   cam_06:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_06_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_06_hd
           roles: ['record']
     detect:
       width: 1280
@@ -121,14 +137,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 7
   cam_07:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_07_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_07_hd
           roles: ['record']
     detect:
       width: 1280
@@ -137,14 +151,12 @@ cameras:
     objects:
       track: ['person']
 
-  # Cámara 8
   cam_08:
-    enabled: True
     ffmpeg:
       inputs:
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
+        - path: rtsp://127.0.0.1:8554/cam_08_sd
           roles: ['detect']
-        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
+        - path: rtsp://127.0.0.1:8554/cam_08_hd
           roles: ['record']
     detect:
       width: 1280
@@ -152,4 +164,3 @@ cameras:
       fps: 5
     objects:
       track: ['person']
-
