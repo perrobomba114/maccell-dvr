@@ -30,11 +30,11 @@ cameras:
     ffmpeg:
       inputs:
         # Stream para detección (Sub-stream: menor resolución)
-        - path: rtsp://administrador:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
         # Stream para grabación (Main-stream: 1080p)
-        - path: rtsp://administrador:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
           roles:
             - record
     detect:
