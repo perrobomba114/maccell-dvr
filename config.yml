@@ -25,37 +25,131 @@ snapshots:
 
 # Configuración de cámaras por sucursal
 cameras:
-  sucursal_01: # MacCell DVR Local
+  # Cámara 1
+  cam_01:
     enabled: True
     ffmpeg:
       inputs:
-        # Stream para detección (Sub-stream: menor resolución)
         - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
-          roles:
-            - detect
-        # Stream para grabación (Main-stream: 1080p)
+          roles: ['detect']
         - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
-          roles:
-            - record
+          roles: ['record']
     detect:
       width: 1280
       height: 720
       fps: 5
-    
-    # Lógica de Conteo de Personas
-    zones:
-      entrada_sucursal:
-        coordinates: 457,720,832,720,805,432,514,435
-        objects:
-          - person
-    
-    # Filtros
     objects:
-      track:
-        - person
-      filters:
-        person:
-          min_area: 5000
-          max_area: 100000
-          threshold: 0.7
+      track: ['person']
+
+  # Cámara 2
+  cam_02:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 3
+  cam_03:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 4
+  cam_04:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 5
+  cam_05:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 6
+  cam_06:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 7
+  cam_07:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
+
+  # Cámara 8
+  cam_08:
+    enabled: True
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
+          roles: ['detect']
+        - path: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
+          roles: ['record']
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track: ['person']
 
