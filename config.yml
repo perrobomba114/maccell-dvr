@@ -12,9 +12,9 @@ detectors:
 
 # Configuración global de grabación
 record:
-  enabled: True
+  enabled: False
   retain:
-    days: 7
+    days: 0
     mode: all
 
 # Snapshots (Imágenes fijas de eventos)
