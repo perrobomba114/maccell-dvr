@@ -84,56 +84,55 @@ go2rtc:
     # --- SUCURSAL 4 (Placeholder) ---
     # MACCELL_4_01: rtsp://usuario:pass@IP:554/cam...#transport=tcp
 
-cameras:
-  # Definimos plantilla para todas las cámaras
-  # (Menos código repetido y configuración consistente)
-  _template_cam: &template_cam
-    detect:
-      width: 352
-      height: 288
-      fps: 5
-      # enabled: True # Para DEBUG: Poner False si quieres solo ver video sin procesar
+# Definimos plantilla para todas las cámaras (Fuera de 'cameras' para que no crea que es una cámara real)
+x-template-cam: &template_cam
+  detect:
+    width: 352
+    height: 288
+    fps: 5
+    # enabled: True # Para DEBUG: Poner False si quieres solo ver video sin procesar
+  
+  live:
+    height: 720 # Fuerza al reproductor a renderizar en HD (texto pequeño, video grande)
+    quality: 31 # Máxima calidad MJPEG
+
+  # --- OBJETOS A DETECTAR ---
+  objects:
+    track:
+      - person
+      # - car  # Descomentar si hay estacionamiento
     
-    live:
-      height: 720 # Fuerza al reproductor a renderizar en HD (texto pequeño, video grande)
-      quality: 31 # Máxima calidad MJPEG
+    # MÁSCARAS DE OBJETOS (Para ignorar cosas estáticas que parecen personas)
+    # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Object Mask)
+    # mask: 0,0,100,0,100,100...
 
-    # --- OBJETOS A DETECTAR ---
-    objects:
-      track:
-        - person
-        # - car  # Descomentar si hay estacionamiento
-      
-      # MÁSCARAS DE OBJETOS (Para ignorar cosas estáticas que parecen personas)
-      # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Object Mask)
-      # mask: 0,0,100,0,100,100...
+  # --- DETECCIÓN DE MOVIMIENTO ---
+  motion:
+    # MÁSCARAS DE MOVIMIENTO (Para ignorar árboles, timestamps, tráfico lejano)
+    # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Motion Mask)
+    # mask: 0,0,100,0,100,100...
+    threshold: 25 # Sensibilidad (más alto = menos sensible)
 
-    # --- DETECCIÓN DE MOVIMIENTO ---
-    motion:
-      # MÁSCARAS DE MOVIMIENTO (Para ignorar árboles, timestamps, tráfico lejano)
-      # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Motion Mask)
-      # mask: 0,0,100,0,100,100...
-      threshold: 25 # Sensibilidad (más alto = menos sensible)
+  # --- ZONAS (Para contar personas o restringir alertas) ---
+  # Crea las zonas en la UI y pega las coordenadas aquí.
+  zones: {} # Inicializamos vacío para evitar error "NoneType"
+    # Ejemplo: Zona de Caja (Contará personas dentro de esta área)
+    # zona_caja:
+    #   coordinates: 0,0,100,0,100,100,0,100
+    #   objects:
+    #     - person
+    
+    # Ejemplo: Zona de Entrada (Para alertas de ingreso)
+    # zona_entrada:
+    #   coordinates: 200,200,300,200,300,300,200,300
+    
+  # Para DEBUG visual en la grabación (activar bounding boxes)
+  snapshots:
+    enabled: True
+    bounding_box: True
+    crop: False
 
-    # --- ZONAS (Para contar personas o restringir alertas) ---
-    # Crea las zonas en la UI y pega las coordenadas aquí.
-    zones: {} # Inicializamos vacío para evitar error "NoneType"
-      # Ejemplo: Zona de Caja (Contará personas dentro de esta área)
-      # zona_caja:
-      #   coordinates: 0,0,100,0,100,100,0,100
-      #   objects:
-      #     - person
-      
-      # Ejemplo: Zona de Entrada (Para alertas de ingreso)
-      # zona_entrada:
-      #   coordinates: 200,200,300,200,300,300,200,300
-      
-    # Para DEBUG visual en la grabación (activar bounding boxes)
-    snapshots:
-      enabled: True
-      bounding_box: True
-      crop: False
-
+cameras:
   # --- MACCELL 1 ---
   MACCELL_1_01:
     ffmpeg:
