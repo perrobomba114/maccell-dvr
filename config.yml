@@ -10,48 +10,130 @@ detectors:
   ov:
     type: cpu
 
-ffmpeg:
-  hwaccel_args: preset-vaapi # Clave para tu servidor Xeon
+# Configuración Global de Grabación (DESACTIVADA)
+record:
+  enabled: False
+  retain:
+    days: 0
+    mode: all
 
-# --- GO2RTC: El motor que gestiona el HD ---
+# Snapshots (Imágenes de eventos)
+snapshots:
+  enabled: True
+  retain:
+    default: 15
+
+# --- GO2RTC: Motor de Streaming (Optimizado para Redes Remotas) ---
 go2rtc:
   streams:
-    # SUCURSAL 1
-    m1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
-    m1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
-    m1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
-    m1_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
-    m1_03: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
-    m1_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
-    m1_04: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
-    m1_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
-    m1_05: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
-    m1_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
-    m1_06: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
-    m1_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
-    m1_07: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
-    m1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
-    m1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
-    m1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
-    # SUCURSAL 2
-    m2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
-    m2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
-    m2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
-    m2_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
-    m2_03: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
-    m2_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
-    m2_04: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
-    m2_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
-    m2_05: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
-    m2_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
-    m2_06: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
-    m2_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
-    m2_07: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
-    m2_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
-    m2_08: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
-    m2_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
+    # NOTA: #video=copy#audio=copy#transport=tcp fuerza el uso de TCP para evitar pixelado en red
+    
+    # --- SUCURSAL 1 (Local - 192.168.100.215) ---
+    m1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_03: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_04: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_05: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_06: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_07: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0#video=copy#audio=copy#transport=tcp
+    m1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1#video=copy#audio=copy#transport=tcp
+
+    # --- SUCURSAL 2 (Remota - 192.168.0.45) ---
+    m2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_03: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_04: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_05: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_06: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_07: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1#video=copy#audio=copy#transport=tcp
+    
+    m2_08: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#audio=copy#transport=tcp
+    m2_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#audio=copy#transport=tcp
+
+    # --- SUCURSAL 3 (Placeholder) ---
+    # m3_01: rtsp://usuario:pass@IP:554/cam...#transport=tcp
+
+    # --- SUCURSAL 4 (Placeholder) ---
+    # m4_01: rtsp://usuario:pass@IP:554/cam...#transport=tcp
 
 cameras:
+  # Definimos plantilla para todas las cámaras
+  # (Menos código repetido y configuración consistente)
+  _template_cam: &template_cam
+    detect:
+      width: 352
+      height: 288
+      fps: 5
+      # enabled: True # Para DEBUG: Poner False si quieres solo ver video sin procesar
+    
+    live:
+      height: 720
+      quality: 15 # Menor valor = mas compresion (default 31)
+
+    # --- OBJETOS A DETECTAR ---
+    objects:
+      track:
+        - person
+        # - car  # Descomentar si hay estacionamiento
+      
+      # MÁSCARAS DE OBJETOS (Para ignorar cosas estáticas que parecen personas)
+      # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Object Mask)
+      # mask: 0,0,100,0,100,100...
+
+    # --- DETECCIÓN DE MOVIMIENTO ---
+    motion:
+      # MÁSCARAS DE MOVIMIENTO (Para ignorar árboles, timestamps, tráfico lejano)
+      # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Motion Mask)
+      # mask: 0,0,100,0,100,100...
+      threshold: 25 # Sensibilidad (más alto = menos sensible)
+
+    # --- ZONAS (Para contar personas o restringir alertas) ---
+    # Crea las zonas en la UI y pega las coordenadas aquí.
+    zones:
+      # Ejemplo: Zona de Caja (Contará personas dentro de esta área)
+      # zona_caja:
+      #   coordinates: 0,0,100,0,100,100,0,100
+      #   objects:
+      #     - person
+      
+      # Ejemplo: Zona de Entrada (Para alertas de ingreso)
+      # zona_entrada:
+      #   coordinates: 200,200,300,200,300,300,200,300
+      
+    # Para DEBUG visual en la grabación (activar bounding boxes)
+    snapshots:
+      enabled: True
+      bounding_box: True
+      crop: False
+
   # --- MACCELL 1 ---
   MACCELL_1_01:
     ffmpeg:
@@ -59,11 +141,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_01_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_01
-          roles: [record]
-    detect: &detect_params
-      width: 352
-      height: 288
-      fps: 5
+          roles: [] # Vacio = Solo Live View
+    <<: *template_cam
 
   MACCELL_1_02:
     ffmpeg:
@@ -71,9 +150,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_02_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_02
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_03:
     ffmpeg:
@@ -81,9 +159,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_03_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_03
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_04:
     ffmpeg:
@@ -91,9 +168,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_04_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_04
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_05:
     ffmpeg:
@@ -101,9 +177,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_05_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_05
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_06:
     ffmpeg:
@@ -111,9 +186,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_06_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_06
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_07:
     ffmpeg:
@@ -121,9 +195,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_07_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_07
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_1_08:
     ffmpeg:
@@ -131,9 +204,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m1_08_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m1_08
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   # --- MACCELL 2 ---
   MACCELL_2_01:
@@ -142,9 +214,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_01_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_01
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_02:
     ffmpeg:
@@ -152,9 +223,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_02_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_02
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_03:
     ffmpeg:
@@ -162,9 +232,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_03_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_03
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_04:
     ffmpeg:
@@ -172,9 +241,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_04_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_04
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_05:
     ffmpeg:
@@ -182,9 +250,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_05_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_05
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_06:
     ffmpeg:
@@ -192,9 +259,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_06_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_06
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_07:
     ffmpeg:
@@ -202,9 +268,8 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_07_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_07
-          roles: [record]
-    detect:
-      <<: *detect_params
+          roles: []
+    <<: *template_cam
 
   MACCELL_2_08:
     ffmpeg:
@@ -212,14 +277,5 @@ cameras:
         - path: rtsp://127.0.0.1:8554/m2_08_sd
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/m2_08
-          roles: [record]
-    detect:
-      <<: *detect_params
-
-record:
-  enabled: False
-
-snapshots:
-  enabled: True
-  retain:
-    default: 15
+          roles: []
+    <<: *template_cam
