@@ -9,7 +9,7 @@ detectors:
     type: cpu
 
 ffmpeg:
-  hwaccel_args: preset-vaapi
+  # hwaccel_args removed due to unsupported GPU (Matrox G200e)
 
 go2rtc:
   streams:
