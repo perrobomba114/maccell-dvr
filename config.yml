@@ -117,7 +117,7 @@ cameras:
 
     # --- ZONAS (Para contar personas o restringir alertas) ---
     # Crea las zonas en la UI y pega las coordenadas aquí.
-    zones:
+    zones: {} # Inicializamos vacío para evitar error "NoneType"
       # Ejemplo: Zona de Caja (Contará personas dentro de esta área)
       # zona_caja:
       #   coordinates: 0,0,100,0,100,100,0,100
