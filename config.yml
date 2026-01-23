@@ -84,54 +84,6 @@ go2rtc:
     # --- SUCURSAL 4 (Placeholder) ---
     # MACCELL_4_01: rtsp://usuario:pass@IP:554/cam...#transport=tcp
 
-# Definimos plantilla para todas las cámaras (Fuera de 'cameras' para que no crea que es una cámara real)
-x-template-cam: &template_cam
-  detect:
-    width: 352
-    height: 288
-    fps: 5
-    # enabled: True # Para DEBUG: Poner False si quieres solo ver video sin procesar
-  
-  live:
-    height: 720 # Fuerza al reproductor a renderizar en HD (texto pequeño, video grande)
-    quality: 31 # Máxima calidad MJPEG
-
-  # --- OBJETOS A DETECTAR ---
-  objects:
-    track:
-      - person
-      # - car  # Descomentar si hay estacionamiento
-    
-    # MÁSCARAS DE OBJETOS (Para ignorar cosas estáticas que parecen personas)
-    # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Object Mask)
-    # mask: 0,0,100,0,100,100...
-
-  # --- DETECCIÓN DE MOVIMIENTO ---
-  motion:
-    # MÁSCARAS DE MOVIMIENTO (Para ignorar árboles, timestamps, tráfico lejano)
-    # Pega aquí las coordenadas desde la UI (Debug -> Mask & Zone Creator -> Motion Mask)
-    # mask: 0,0,100,0,100,100...
-    threshold: 25 # Sensibilidad (más alto = menos sensible)
-
-  # --- ZONAS (Para contar personas o restringir alertas) ---
-  # Crea las zonas en la UI y pega las coordenadas aquí.
-  zones: {} # Inicializamos vacío para evitar error "NoneType"
-    # Ejemplo: Zona de Caja (Contará personas dentro de esta área)
-    # zona_caja:
-    #   coordinates: 0,0,100,0,100,100,0,100
-    #   objects:
-    #     - person
-    
-    # Ejemplo: Zona de Entrada (Para alertas de ingreso)
-    # zona_entrada:
-    #   coordinates: 200,200,300,200,300,300,200,300
-    
-  # Para DEBUG visual en la grabación (activar bounding boxes)
-  snapshots:
-    enabled: True
-    bounding_box: True
-    crop: False
-
 cameras:
   # --- MACCELL 1 ---
   MACCELL_1_01:
@@ -141,7 +93,30 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_01
           roles: [] # Vacio = Solo Live View
-    <<: *template_cam
+    
+    # Definimos la plantilla AQUI, en la primera cámara válida
+    detect: &template_cam_detect
+      width: 352
+      height: 288
+      fps: 5
+    
+    live: &template_cam_live
+      height: 720
+      quality: 31
+    
+    objects: &template_cam_objects
+      track:
+        - person
+    
+    motion: &template_cam_motion
+      threshold: 25
+
+    zones: &template_cam_zones {}
+    
+    snapshots: &template_cam_snapshots
+      enabled: True
+      bounding_box: True
+      crop: False
 
   MACCELL_1_02:
     ffmpeg:
@@ -177,7 +152,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_05
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_1_06:
     ffmpeg:
@@ -186,7 +166,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_06
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_1_07:
     ffmpeg:
@@ -195,7 +180,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_07
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_1_08:
     ffmpeg:
@@ -204,7 +194,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_1_08
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   # --- MACCELL 2 ---
   MACCELL_2_01:
@@ -214,7 +209,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_01
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_02:
     ffmpeg:
@@ -223,7 +223,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_02
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_03:
     ffmpeg:
@@ -232,7 +237,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_03
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_04:
     ffmpeg:
@@ -241,7 +251,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_04
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_05:
     ffmpeg:
@@ -250,7 +265,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_05
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_06:
     ffmpeg:
@@ -259,7 +279,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_06
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_07:
     ffmpeg:
@@ -268,7 +293,12 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_07
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
 
   MACCELL_2_08:
     ffmpeg:
@@ -277,4 +307,9 @@ cameras:
           roles: [detect]
         - path: rtsp://127.0.0.1:8554/MACCELL_2_08
           roles: []
-    <<: *template_cam
+    detect: *template_cam_detect
+    live: *template_cam_live
+    objects: *template_cam_objects
+    motion: *template_cam_motion
+    zones: *template_cam_zones
+    snapshots: *template_cam_snapshots
