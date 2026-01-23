@@ -30,8 +30,8 @@ snapshots:
 go2rtc:
   streams:
     # --- SUCURSAL 1 (Local - 192.168.100.215) ---
-    MACCELL_1_01: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0#video=copy#audio=copy#transport=tcp"
-    MACCELL_1_01_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1#video=copy#audio=copy#transport=tcp"
+    MACCELL_1_01: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0"
+    MACCELL_1_01_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1"
     
     MACCELL_1_02: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0#video=copy#audio=copy#transport=tcp"
     MACCELL_1_02_sd: "rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1#video=copy#audio=copy#transport=tcp"
