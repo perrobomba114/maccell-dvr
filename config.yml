@@ -8,8 +8,8 @@ detectors:
   ov:
     type: cpu
 
-ffmpeg:
-  # hwaccel_args removed due to unsupported GPU (Matrox G200e)
+# ffmpeg section removed
+
 
 go2rtc:
   streams:
