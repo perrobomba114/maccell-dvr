@@ -94,9 +94,9 @@ cameras:
       fps: 5
       # enabled: True # Para DEBUG: Poner False si quieres solo ver video sin procesar
     
-    # live:
-    #   height: 720
-    #   quality: 31 # ELIMIMANOS RESTRICCIONES PARA MÁXIMA CALIDAD
+    live:
+      height: 720 # Fuerza al reproductor a renderizar en HD (texto pequeño, video grande)
+      quality: 31 # Máxima calidad MJPEG
 
     # --- OBJETOS A DETECTAR ---
     objects:
