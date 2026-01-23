@@ -14,185 +14,185 @@ ffmpeg:
 go2rtc:
   streams:
     # SUCURSAL 1
-    m1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
-    m1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
-    m1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
-    m1_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
-    m1_03: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
-    m1_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
-    m1_04: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
-    m1_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
-    m1_05: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
-    m1_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
-    m1_06: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
-    m1_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
-    m1_07: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
-    m1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
-    m1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
-    m1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
+    MACCELL_1_01: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=0
+    MACCELL_1_01_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=1&subtype=1
+    MACCELL_1_02: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=0
+    MACCELL_1_02_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=2&subtype=1
+    MACCELL_1_03: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=0
+    MACCELL_1_03_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=3&subtype=1
+    MACCELL_1_04: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=0
+    MACCELL_1_04_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=4&subtype=1
+    MACCELL_1_05: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=0
+    MACCELL_1_05_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=5&subtype=1
+    MACCELL_1_06: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=0
+    MACCELL_1_06_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=6&subtype=1
+    MACCELL_1_07: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=0
+    MACCELL_1_07_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=7&subtype=1
+    MACCELL_1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
+    MACCELL_1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
     # SUCURSAL 2
-    m2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
-    m2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
-    m2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
-    m2_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
-    m2_03: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
-    m2_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
-    m2_04: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
-    m2_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
-    m2_05: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
-    m2_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
-    m2_06: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
-    m2_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
-    m2_07: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
-    m2_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
-    m2_08: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
-    m2_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
+    MACCELL_2_01: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=0
+    MACCELL_2_01_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=1&subtype=1
+    MACCELL_2_02: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+    MACCELL_2_02_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
+    MACCELL_2_03: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=0
+    MACCELL_2_03_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=3&subtype=1
+    MACCELL_2_04: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+    MACCELL_2_04_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
+    MACCELL_2_05: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=0
+    MACCELL_2_05_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=5&subtype=1
+    MACCELL_2_06: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+    MACCELL_2_06_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
+    MACCELL_2_07: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=0
+    MACCELL_2_07_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=7&subtype=1
+    MACCELL_2_08: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+    MACCELL_2_08_sd: rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
 
 cameras:
   MACCELL_1_01:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_01_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_01_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_01
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_01
           roles: [record]
     detect: &def_detect
-      width: 352
-      height: 288
+      width: 640
+      height: 360
       fps: 5
 
   MACCELL_1_02:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_02_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_02_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_02
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_02
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_03:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_03_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_03_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_03
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_03
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_04:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_04_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_04_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_04
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_04
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_05:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_05_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_05_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_05
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_05
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_06:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_06_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_06_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_06
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_06
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_07:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_07_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_07_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_07
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_07
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_1_08:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m1_08_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_08_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m1_08
+        - path: rtsp://127.0.0.1:8554/MACCELL_1_08
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_01:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_01_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_01_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_01
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_01
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_02:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_02_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_02_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_02
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_02
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_03:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_03_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_03_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_03
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_03
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_04:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_04_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_04_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_04
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_04
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_05:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_05_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_05_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_05
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_05
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_06:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_06_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_06_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_06
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_06
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_07:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_07_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_07_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_07
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_07
           roles: [record]
     detect: { <<: *def_detect }
 
   MACCELL_2_08:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/m2_08_sd
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_08_sd
           roles: [detect]
-        - path: rtsp://127.0.0.1:8554/m2_08
+        - path: rtsp://127.0.0.1:8554/MACCELL_2_08
           roles: [record]
     detect: { <<: *def_detect }
 
