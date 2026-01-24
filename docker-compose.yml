@@ -12,7 +12,7 @@ services:
     networks:
       - dokploy-network
     ports:
-      - "8971:8971"
+      # - "8971:8971" # Quitamos esto definitivamente para evitar el error de puerto ocupado
       - "8554:8554" # RTSP
       - "8555:8555/tcp" # WebRTC
       - "8555:8555/udp" # WebRTC
