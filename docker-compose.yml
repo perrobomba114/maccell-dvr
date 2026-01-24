@@ -12,7 +12,7 @@ services:
     networks:
       - dokploy-network
     ports:
-      - "8971:8971" # Puerto Web UI (HTTPS)
+      # - "8971:8971" # Quitamos esto porque Dokploy (Traefik) lo maneja por red interna
       - "8554:8554" # RTSP
       - "8555:8555/tcp" # WebRTC
       - "8555:8555/udp" # WebRTC
