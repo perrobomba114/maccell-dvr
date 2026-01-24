@@ -2,9 +2,23 @@ services:
   frigate:
     image: ghcr.io/blakeblackshear/frigate:0.16.3
     privileged: true
-    shm_size: "512mb"
+    shm_size: "1gb" # Aumentado para 16 cámaras
+    restart: unless-stopped
     volumes:
-      - ./config.yml:/config/config.yml:ro # Tu lógica de conteo aquí
-      - ./frigate_db:/db # Base de datos persistente (Usuarios, configuración)
-      - /mnt/storage/frigate:/media/frigate # Donde guardas el video en el ProLiant
-    network_mode: "host"
+      - ./config.yml:/config/config.yml:ro
+      - ./frigate_db:/config/db # Cambiado para estar dentro de /config
+      - /mnt/storage/frigate:/media/frigate
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - dokploy-network
+    ports:
+      - "8971:8971" # Puerto Web UI (HTTPS)
+      - "8554:8554" # RTSP
+      - "8555:8555/tcp" # WebRTC
+      - "8555:8555/udp" # WebRTC
+    environment:
+      - FRIGATE_RTSP_PASSWORD=password # Opcional: define una clave para el stream interno
+
+networks:
+  dokploy-network:
+    external: true

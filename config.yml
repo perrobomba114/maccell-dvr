@@ -1,5 +1,5 @@
 database:
-  path: /db/frigate.db
+  path: /config/db/frigate.db
 
 mqtt:
   enabled: False
@@ -13,6 +13,7 @@ logger:
 detectors:
   ov:
     type: cpu
+    num_threads: 4 # Ajusta según los núcleos de tu procesador (2-4 recomendado)
 
 go2rtc:
   streams:
