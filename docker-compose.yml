@@ -4,21 +4,15 @@ services:
     privileged: true
     shm_size: "1gb"
     restart: unless-stopped
+    network_mode: host # Crucial para ver cámaras locales 192.168.x.x
     volumes:
       - ./config.yml:/config/config.yml:ro
       - ./frigate_db:/config/db
       - /mnt/storage/frigate:/media/frigate
       - /etc/localtime:/etc/localtime:ro
-    networks:
-      - dokploy-network
-    ports:
-      - "5000:5000" # Puerto API/Web (HTTP)
-      - "8554:8554" # RTSP
-      - "8555:8555/tcp" # WebRTC
-      - "8555:8555/udp" # WebRTC
     environment:
       - FRIGATE_RTSP_PASSWORD=password
-      - FRIGATE_HTTP_PORT=5000 # Forzamos puerto 5000
+      - FRIGATE_HTTP_PORT=5000
 
 networks:
   dokploy-network:
