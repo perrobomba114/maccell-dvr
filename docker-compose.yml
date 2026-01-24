@@ -18,6 +18,7 @@ services:
       - "8555:8555/udp" # WebRTC
     environment:
       - FRIGATE_RTSP_PASSWORD=password
+      - PLUS_API_KEY= # Opcional si usas Frigate+
 
 networks:
   dokploy-network:
