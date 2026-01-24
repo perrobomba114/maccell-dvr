@@ -4,11 +4,21 @@ services:
     privileged: true
     shm_size: "1gb"
     restart: unless-stopped
-    network_mode: host
     volumes:
       - ./config.yml:/config/config.yml:ro
       - ./frigate_db:/config/db
       - /mnt/storage/frigate:/media/frigate
       - /etc/localtime:/etc/localtime:ro
+    networks:
+      - dokploy-network
+    ports:
+      - "8971:8971"
+      - "8554:8554" # RTSP
+      - "8555:8555/tcp" # WebRTC
+      - "8555:8555/udp" # WebRTC
     environment:
       - FRIGATE_RTSP_PASSWORD=password
+
+networks:
+  dokploy-network:
+    external: true
