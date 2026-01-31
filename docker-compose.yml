@@ -1,15 +1,15 @@
 services:
-  frigate:
-    container_name: frigate
-    image: ghcr.io/blakeblackshear/frigate:0.16.3
-    privileged: true
-    shm_size: "2gb"
+  scrypted:
+    container_name: scrypted
+    image: koush/scrypted
     restart: unless-stopped
-    network_mode: host
+    network_mode: bridge
     volumes:
-      - ./config.yml:/config/config.yml:ro
-      - ./frigate_db:/database # Para evitar colisiones en /config
-      - /mnt/storage/frigate:/media/frigate
-      - /etc/localtime:/etc/localtime:ro
+      - /home/maccell/scrypted/config:/server/volume
+    ports:
+      - "11080:11080"
+      - "10443:10443" # Puerto HTTPS de Scrypted
+      - "30000-30010:30000-30010" # Recomendado para streaming
+    privileged: true
     environment:
-      - FRIGATE_RTSP_PASSWORD=password
+      - SCRYPTED_WEB_PORT=11080
