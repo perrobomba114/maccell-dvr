@@ -3,16 +3,13 @@ services:
     container_name: scrypted
     image: koush/scrypted
     restart: unless-stopped
-    # Cambiamos a bridge para que el tunel de Cloudflare lo encuentre por IP
     network_mode: bridge
     volumes:
       - /home/maccell/scrypted/config:/server/volume
     ports:
       - "11080:11080"
       - "10443:10443"
-      - "30000-30010:30000-30010"
     privileged: true
     environment:
       - SCRYPTED_WEB_PORT=11080
       - SCRYPTED_SECURE_PORT=10443
-      - NODE_ENV=production
