@@ -13,7 +13,7 @@ logger:
 detectors:
   ov:
     type: cpu
-    num_threads: 4 # Ajusta según los núcleos de tu procesador (2-4 recomendado)
+    num_threads: 4
 
 go2rtc:
   streams:
@@ -58,318 +58,334 @@ cameras:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_01_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_01
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_02:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_02_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_02
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_03:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_03_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_03
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_04:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_04_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_04
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_05:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_05_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_05
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_06:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_06_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_06
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_07:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_07_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_07
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_1_08:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_1_08_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_1_08
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_01:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_01_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_01
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_02:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_02_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_02
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_03:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_03_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_03
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_04:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_04_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_04
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_05:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_05_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_05
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_06:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_06_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_06
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_07:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_07_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_07
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
 
   MACCELL_2_08:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/MACCELL_2_08_sd
-          roles: [detect]
-        - path: rtsp://127.0.0.1:8554/MACCELL_2_08
-          roles: [record]
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
     detect:
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
     snapshots:
-      enabled: True
+      enabled: true
       retain:
         default: 15
     objects:
-      track: [person]
+      track:
+        - person
