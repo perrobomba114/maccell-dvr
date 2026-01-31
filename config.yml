@@ -1,5 +1,5 @@
 database:
-  path: /config/frigate.db
+  path: /database/frigate.db
 
 mqtt:
   enabled: False
@@ -35,23 +35,23 @@ go2rtc:
     m1_08: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=0
     m1_08_sd: rtsp://admin:Cada0108@192.168.100.215:554/cam/realmonitor?channel=8&subtype=1
     
-    # SUCURSAL 2 (Remota - Tailscale via host.docker.internal)
-    m2_01: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=1&subtype=0
-    m2_01_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=1&subtype=1
-    m2_02: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=2&subtype=0
-    m2_02_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=2&subtype=1
-    m2_03: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=3&subtype=0
-    m2_03_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=3&subtype=1
-    m2_04: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=4&subtype=0
-    m2_04_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=4&subtype=1
-    m2_05: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=5&subtype=0
-    m2_05_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=5&subtype=1
-    m2_06: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=6&subtype=0
-    m2_06_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=6&subtype=1
-    m2_07: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=7&subtype=0
-    m2_07_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=7&subtype=1
-    m2_08: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=8&subtype=0
-    m2_08_sd: rtsp://admin:Cada0108@host.docker.internal:554/cam/realmonitor?channel=8&subtype=1
+    # SUCURSAL 2 (Remota - Tailscale directa 100.93.142.28)
+    m2_01: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=1&subtype=0
+    m2_01_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=1&subtype=1
+    m2_02: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=2&subtype=0
+    m2_02_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=2&subtype=1
+    m2_03: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=3&subtype=0
+    m2_03_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=3&subtype=1
+    m2_04: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=4&subtype=0
+    m2_04_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=4&subtype=1
+    m2_05: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=5&subtype=0
+    m2_05_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=5&subtype=1
+    m2_06: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=6&subtype=0
+    m2_06_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=6&subtype=1
+    m2_07: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=7&subtype=0
+    m2_07_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=7&subtype=1
+    m2_08: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=8&subtype=0
+    m2_08_sd: rtsp://admin:Cada0108@100.93.142.28:554/cam/realmonitor?channel=8&subtype=1
 
 cameras:
   MACCELL_1_01:

@@ -5,23 +5,11 @@ services:
     privileged: true
     shm_size: "2gb"
     restart: unless-stopped
-    networks:
-      - dokploy-network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    network_mode: host
     volumes:
       - ./config.yml:/config/config.yml:ro
-      - ./frigate_db:/config
+      - ./frigate_db:/database # Para evitar colisiones en /config
       - /mnt/storage/frigate:/media/frigate
       - /etc/localtime:/etc/localtime:ro
-    ports:
-      - "5000:5000"
-      - "8554:8554"
-      - "8555:8555/tcp"
-      - "8555:8555/udp"
     environment:
       - FRIGATE_RTSP_PASSWORD=password
-
-networks:
-  dokploy-network:
-    external: true
