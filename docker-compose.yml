@@ -3,7 +3,8 @@ services:
     container_name: scrypted
     image: koush/scrypted
     restart: unless-stopped
-    network_mode: bridge
+    networks:
+      - dokploy-network
     volumes:
       - ../files/scrypted:/server/volume
     ports:
@@ -13,3 +14,7 @@ services:
     environment:
       - SCRYPTED_WEB_PORT=11080
       - SCRYPTED_SECURE_PORT=10443
+
+networks:
+  dokploy-network:
+    external: true
