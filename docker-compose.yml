@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     network_mode: bridge
     volumes:
-      - /home/maccell/scrypted/config:/server/volume
+      - ../files/scrypted:/server/volume
     ports:
       - "11080:11080"
       - "10443:10443"
