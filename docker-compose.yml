@@ -1,15 +1,27 @@
 services:
   frigate:
-    image: ghcr.io/blakeblackshear/frigate:0.16.3
     container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:0.16.3
     privileged: true
-    shm_size: "2gb" # Aumentado a 2GB para soportar 16 cámaras sin crasheos
+    shm_size: "2gb"
     restart: unless-stopped
+    networks:
+      - dokploy-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./config.yml:/config/config.yml:ro
-      - ./frigate_db:/config/db
+      - ./frigate_db:/config
       - /mnt/storage/frigate:/media/frigate
       - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "5000:5000"
+      - "8554:8554"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
     environment:
       - FRIGATE_RTSP_PASSWORD=password
-    network_mode: host
+
+networks:
+  dokploy-network:
+    external: true
