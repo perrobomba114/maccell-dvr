@@ -60,7 +60,7 @@ cameras:
       height: 360
       fps: 5
     record:
-      enabled: True
+      enabled: False
       retain:
         days: 7
         mode: all
@@ -82,7 +82,7 @@ cameras:
       height: 360
       fps: 5
     record:
-      enabled: True
+      enabled: False
       retain:
         days: 7
         mode: all
@@ -104,7 +104,7 @@ cameras:
       height: 360
       fps: 5
     record:
-      enabled: True
+      enabled: False
       retain:
         days: 7
         mode: all
@@ -126,7 +126,7 @@ cameras:
       height: 360
       fps: 5
     record:
-      enabled: True
+      enabled: False
       retain:
         days: 7
         mode: all
@@ -138,7 +138,7 @@ objects:
     - motorcycle
 
 snapshots:
-  enabled: True
+  enabled: False
   timestamp: True
   bounding_box: True
   retain:
