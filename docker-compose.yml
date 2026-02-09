@@ -17,7 +17,7 @@ services:
           size: 1000000000
     ports:
       - "8971:8971"
-      - "11080:5000" # Map Frigate (5000) to Dokploy expected Scrypted port (11080)
+      - "11080:8971" # Map Frigate Secure (8971) to Dokploy expected port (11080) for HTTPS
       - "5000:5000" # Keep 5000 available
       - "8554:8554" # RTSP feeds
       - "8555:8555" # WebRTC over tcp
