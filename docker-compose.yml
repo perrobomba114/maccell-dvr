@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
     shm_size: "128mb" # Required for some setups, adjust as needed
-    devices:
-      - /dev/dri/renderD128 # for intel hwaccel, adjust as needed
+    # devices:
+    #   - /dev/dri/renderD128 # for intel hwaccel, adjust as needed
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config.yml:/config/config.yml
@@ -18,15 +18,15 @@ services:
     ports:
       - "8971:8971" # Secure port
       - "11080:5000" # Mapped for Cloudflare/Tunnel compatibility (HTTP)
-      - "5000:5000" # Web UI port
+      # - "5000:5000" # Conflict with AirPlay on Mac
       - "8554:8554" # RTSP feeds
       - "8555:8555" # WebRTC over tcp
       - "8555:8555/udp" # WebRTC over udp
     environment:
       - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:
-      - dokploy-network
+      - frigate-network
 
 networks:
-  dokploy-network:
-    external: true
+  frigate-network:
+    driver: bridge

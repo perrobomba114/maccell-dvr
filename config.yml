@@ -1,8 +1,8 @@
 mqtt:
-  enabled: False
+  enabled: false
 
 auth:
-  enabled: True
+  enabled: true
 
 database:
   path: /config/frigate.db
@@ -26,21 +26,21 @@ model:
 go2rtc:
   streams:
     maccell_02:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_02_sub:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_04:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_04_sub:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_06:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_06_sub:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_08:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
     maccell_08_sub:
-      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
+      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
 
 cameras:
   MACCELL_02:
@@ -55,12 +55,12 @@ cameras:
           roles:
             - detect
     detect:
-      enabled: True
+      enabled: true
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
       retain:
         days: 7
         mode: all
@@ -77,12 +77,12 @@ cameras:
           roles:
             - detect
     detect:
-      enabled: True
+      enabled: true
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
       retain:
         days: 7
         mode: all
@@ -99,12 +99,12 @@ cameras:
           roles:
             - detect
     detect:
-      enabled: True
+      enabled: true
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
       retain:
         days: 7
         mode: all
@@ -121,12 +121,12 @@ cameras:
           roles:
             - detect
     detect:
-      enabled: True
+      enabled: true
       width: 640
       height: 360
       fps: 5
     record:
-      enabled: False
+      enabled: false
       retain:
         days: 7
         mode: all
@@ -138,8 +138,11 @@ objects:
     - motorcycle
 
 snapshots:
-  enabled: False
-  timestamp: True
-  bounding_box: True
+  enabled: false
+  timestamp: true
+  bounding_box: true
   retain:
     default: 10
+detect:
+  enabled: true
+version: 0.16-0
