@@ -26,21 +26,21 @@ model:
 go2rtc:
   streams:
     maccell_02:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_02_sub:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_04:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_04_sub:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_06:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_06_sub:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_08:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
     maccell_08_sub:
-      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
+      - "ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11"
 
 cameras:
   MACCELL_02:
