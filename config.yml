@@ -1,0 +1,109 @@
+mqtt:
+  enabled: False
+
+database:
+  path: /config/frigate.db
+
+detectors:
+  ov:
+    type: openvino
+    device: AUTO
+    model:
+      path: /openvino-model/ssdlite_mobilenet_v2.xml
+
+go2rtc:
+  streams:
+    maccell_02:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+    maccell_04:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+    maccell_06:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+    maccell_08:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+
+cameras:
+  MACCELL_02:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/maccell_02
+          roles:
+            - detect
+            - record
+    detect:
+      enabled: True
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: True
+      retain:
+        days: 7
+        mode: all
+
+  MACCELL_04:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/maccell_04
+          roles:
+            - detect
+            - record
+    detect:
+      enabled: True
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: True
+      retain:
+        days: 7
+        mode: all
+
+  MACCELL_06:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/maccell_06
+          roles:
+            - detect
+            - record
+    detect:
+      enabled: True
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: True
+      retain:
+        days: 7
+        mode: all
+
+  MACCELL_08:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/maccell_08
+          roles:
+            - detect
+            - record
+    detect:
+      enabled: True
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: True
+      retain:
+        days: 7
+        mode: all
+
+objects:
+  track:
+    - person
+    - car
+    - motorcycle
+
+snapshots:
+  enabled: True
+  timestamp: True
+  bounding_box: True
+  retain:
+    default: 10

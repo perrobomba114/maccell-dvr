@@ -1,19 +1,30 @@
 services:
-  scrypted:
-    container_name: scrypted
-    image: koush/scrypted
+  frigate:
+    container_name: frigate
+    privileged: true # required for some hardware acceleration functions
     restart: unless-stopped
+    image: ghcr.io/blakeblackshear/frigate:stable
+    shm_size: "128mb" # Required for some setups, adjust as needed
+    devices:
+      - /dev/dri/renderD128 # for intel hwaccel, adjust as needed
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config.yml:/config/config.yml
+      - ../files/frigate:/media/frigate
+      - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    ports:
+      - "8971:8971"
+      - "5000:5000" # Internal unencrypted config/API port
+      - "8554:8554" # RTSP feeds
+      - "8555:8555" # WebRTC over tcp
+      - "8555:8555/udp" # WebRTC over udp
+    environment:
+      - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:
       - dokploy-network
-    volumes:
-      - ../files/scrypted:/server/volume
-    ports:
-      - "11080:11080"
-      - "10443:10443"
-    privileged: true
-    environment:
-      - SCRYPTED_WEB_PORT=11080
-      - SCRYPTED_SECURE_PORT=10443
 
 networks:
   dokploy-network:
