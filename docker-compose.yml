@@ -1,5 +1,5 @@
 services:
-  frigate:
+  scrypted:
     container_name: frigate
     privileged: true # required for some hardware acceleration functions
     restart: unless-stopped
