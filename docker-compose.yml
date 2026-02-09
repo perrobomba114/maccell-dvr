@@ -17,7 +17,8 @@ services:
           size: 1000000000
     ports:
       - "8971:8971"
-      - "5000:5000" # Internal unencrypted config/API port
+      - "11080:5000" # Map Frigate (5000) to Dokploy expected Scrypted port (11080)
+      - "5000:5000" # Keep 5000 available
       - "8554:8554" # RTSP feeds
       - "8555:8555" # WebRTC over tcp
       - "8555:8555/udp" # WebRTC over udp
