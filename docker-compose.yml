@@ -17,6 +17,7 @@ services:
           size: 1000000000
     ports:
       - "8971:8971" # Secure port
+      - "11080:5000" # Mapped for Cloudflare/Tunnel compatibility (HTTP)
       - "5000:5000" # Web UI port
       - "8554:8554" # RTSP feeds
       - "8555:8555" # WebRTC over tcp
