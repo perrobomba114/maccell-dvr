@@ -16,9 +16,8 @@ services:
         tmpfs:
           size: 1000000000
     ports:
-      - "8971:8971"
-      - "11080:8971" # Map Frigate Secure (8971) to Dokploy expected port (11080) for HTTPS
-      - "5000:5000" # Keep 5000 available
+      - "8971:8971" # Secure port
+      - "5000:5000" # Web UI port
       - "8554:8554" # RTSP feeds
       - "8555:8555" # WebRTC over tcp
       - "8555:8555/udp" # WebRTC over udp
