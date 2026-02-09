@@ -15,25 +15,37 @@ go2rtc:
   streams:
     maccell_02:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0
+    maccell_02_sub:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1
     maccell_04:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0
+    maccell_04_sub:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1
     maccell_06:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0
+    maccell_06_sub:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1
     maccell_08:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0
+    maccell_08_sub:
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1
 
 cameras:
   MACCELL_02:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/maccell_02
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+        - path: rtsp://127.0.0.1:8554/maccell_02_sub
+          input_args: preset-rtsp-restream
           roles:
             - detect
-            - record
     detect:
       enabled: True
-      width: 1280
-      height: 720
+      width: 704
+      height: 576
       fps: 5
     record:
       enabled: True
@@ -45,13 +57,17 @@ cameras:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/maccell_04
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+        - path: rtsp://127.0.0.1:8554/maccell_04_sub
+          input_args: preset-rtsp-restream
           roles:
             - detect
-            - record
     detect:
       enabled: True
-      width: 1280
-      height: 720
+      width: 704
+      height: 576
       fps: 5
     record:
       enabled: True
@@ -63,13 +79,17 @@ cameras:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/maccell_06
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+        - path: rtsp://127.0.0.1:8554/maccell_06_sub
+          input_args: preset-rtsp-restream
           roles:
             - detect
-            - record
     detect:
       enabled: True
-      width: 1280
-      height: 720
+      width: 704
+      height: 576
       fps: 5
     record:
       enabled: True
@@ -81,13 +101,17 @@ cameras:
     ffmpeg:
       inputs:
         - path: rtsp://127.0.0.1:8554/maccell_08
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+        - path: rtsp://127.0.0.1:8554/maccell_08_sub
+          input_args: preset-rtsp-restream
           roles:
             - detect
-            - record
     detect:
       enabled: True
-      width: 1280
-      height: 720
+      width: 704
+      height: 576
       fps: 5
     record:
       enabled: True
