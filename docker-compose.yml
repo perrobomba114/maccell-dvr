@@ -1,13 +1,12 @@
 services:
   frigate:
-    # Cambié el service name a frigate para claridad (container_name ya es frigate)
     container_name: frigate
     privileged: true
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
-    shm_size: "512mb" # Subido para evitar OOM en detector con múltiples streams
+    shm_size: "512mb"
     devices:
-      - /dev/dri:/dev/dri # CRUCIAL: mapea todo para OpenVINO GPU (card0 + render*)
+      - /dev/dri:/dev/dri
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config.yml:/config/config.yml:ro
@@ -15,15 +14,14 @@ services:
       - type: tmpfs
         target: /tmp/cache
         tmpfs:
-          size: 1000000000 # 1GB tmpfs para cache (reduce wear en disco)
+          size: 1000000000
     ports:
-      - "8971:8971" # Secure port (web UI HTTPS?)
-      - "11080:5000" # HTTP para Cloudflare/Tunnel
-      - "8554:8554" # RTSP restream (go2rtc)
-      - "8555:8555" # WebRTC TCP
-      - "8555:8555/udp" # WebRTC UDP
-      # Opcional: accede a go2rtc debug UI
-      - "1984:1984"
+      - "8971:8971"
+      - "11080:5000"
+      - "8554:8554"
+      - "8555:8555"
+      - "8555:8555/udp"
+      - "1984:1984" # Para debug go2rtc si lo necesitas
     environment:
       - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:
