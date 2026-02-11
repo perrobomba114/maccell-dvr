@@ -1,27 +1,29 @@
 services:
-  scrypted:
+  frigate:
+    # Cambié el service name a frigate para claridad (container_name ya es frigate)
     container_name: frigate
-    privileged: true # required for some hardware acceleration functions
+    privileged: true
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
-    shm_size: "128mb" # Required for some setups, adjust as needed
-    # devices:
-    #   - /dev/dri/renderD128 # for intel hwaccel, adjust as needed
+    shm_size: "512mb" # Subido para evitar OOM en detector con múltiples streams
+    devices:
+      - /dev/dri:/dev/dri # CRUCIAL: mapea todo para OpenVINO GPU (card0 + render*)
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./config.yml:/config/config.yml
+      - ./config.yml:/config/config.yml:ro
       - ../files/frigate:/media/frigate
-      - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
+      - type: tmpfs
         target: /tmp/cache
         tmpfs:
-          size: 1000000000
+          size: 1000000000 # 1GB tmpfs para cache (reduce wear en disco)
     ports:
-      - "8971:8971" # Secure port
-      - "11080:5000" # Mapped for Cloudflare/Tunnel compatibility (HTTP)
-      # - "5000:5000" # Conflict with AirPlay on Mac
-      - "8554:8554" # RTSP feeds
-      - "8555:8555" # WebRTC over tcp
-      - "8555:8555/udp" # WebRTC over udp
+      - "8971:8971" # Secure port (web UI HTTPS?)
+      - "11080:5000" # HTTP para Cloudflare/Tunnel
+      - "8554:8554" # RTSP restream (go2rtc)
+      - "8555:8555" # WebRTC TCP
+      - "8555:8555/udp" # WebRTC UDP
+      # Opcional: accede a go2rtc debug UI
+      - "1984:1984"
     environment:
       - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:

@@ -10,37 +10,35 @@ database:
 detectors:
   ov:
     type: openvino
-    device: AUTO
+    device: GPU               # Cambiado de AUTO a GPU (mejor estabilidad)
 
 model:
   width: 300
   height: 300
   model_type: ssd
-  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  path: /openvino-model/ssdlite_mobilenet_v2.xml     # Correcto: ssdlite (no ssdlist)
   labelmap_path: /openvino-model/coco_91cl_bkgr.txt
   input_tensor: nhwc
   input_pixel_format: bgr
 
-
-
 go2rtc:
   streams:
     maccell_02:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#input=rtsp/udp
     maccell_02_sub:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#input=rtsp/udp
     maccell_04:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#input=rtsp/udp
     maccell_04_sub:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#input=rtsp/udp
     maccell_06:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#input=rtsp/udp
     maccell_06_sub:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#input=rtsp/udp
     maccell_08:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#input=rtsp/udp
     maccell_08_sub:
-      - ffmpeg:rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#video=copy#bsf:v=h264_metadata=sample_aspect_ratio=16/11
+      - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#input=rtsp/udp
 
 cameras:
   MACCELL_02:
@@ -143,6 +141,8 @@ snapshots:
   bounding_box: true
   retain:
     default: 10
+
 detect:
   enabled: true
+
 version: 0.16-0
