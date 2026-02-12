@@ -9,19 +9,19 @@ services:
       - /dev/dri:/dev/dri
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./config.yml:/config/config.yml:ro
-      - ../files/frigate:/media/frigate
+      - ./config.yml:/config/config.yml:ro # or absolute path to your real config
+      - ../files/frigate:/media/frigate # storage for clips/db
       - type: tmpfs
         target: /tmp/cache
         tmpfs:
           size: 1000000000
     ports:
-      - "8971:8971"
-      - "11080:5000"
+      - "8971:8971" # optional debug port
+      - "11080:5000" # web UI (better via Dokploy proxy/domain)
       - "8554:8554"
       - "8555:8555"
       - "8555:8555/udp"
-      - "1984:1984" # optional, very useful for go2rtc debugging
+      - "1984:1984" # go2rtc debug (optional)
     environment:
       - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:
