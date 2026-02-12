@@ -23,32 +23,28 @@ model:
 
 go2rtc:
   streams:
-    maccell_02:
+    MACCELL_02:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=0#input=rtsp/udp
-    maccell_02_sub:
+    MACCELL_02_sub:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=2&subtype=1#input=rtsp/udp
-    maccell_04:
+    MACCELL_04:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=0#input=rtsp/udp
-    maccell_04_sub:
+    MACCELL_04_sub:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=4&subtype=1#input=rtsp/udp
-    maccell_06:
+    MACCELL_06:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=0#input=rtsp/udp
-    maccell_06_sub:
+    MACCELL_06_sub:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=6&subtype=1#input=rtsp/udp
-    maccell_08:
+    MACCELL_08:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=0#input=rtsp/udp
-    maccell_08_sub:
+    MACCELL_08_sub:
       - rtsp://admin:Cada0108@192.168.0.45:554/cam/realmonitor?channel=8&subtype=1#input=rtsp/udp
 
 cameras:
   MACCELL_02:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/maccell_02
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-        - path: rtsp://127.0.0.1:8554/maccell_02_sub
+        - path: rtsp://127.0.0.1:8554/MACCELL_02_sub
           input_args: preset-rtsp-restream
           roles:
             - detect
@@ -66,11 +62,7 @@ cameras:
   MACCELL_04:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/maccell_04
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-        - path: rtsp://127.0.0.1:8554/maccell_04_sub
+        - path: rtsp://127.0.0.1:8554/MACCELL_04_sub
           input_args: preset-rtsp-restream
           roles:
             - detect
@@ -88,11 +80,7 @@ cameras:
   MACCELL_06:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/maccell_06
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-        - path: rtsp://127.0.0.1:8554/maccell_06_sub
+        - path: rtsp://127.0.0.1:8554/MACCELL_06_sub
           input_args: preset-rtsp-restream
           roles:
             - detect
@@ -110,11 +98,7 @@ cameras:
   MACCELL_08:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/maccell_08
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-        - path: rtsp://127.0.0.1:8554/maccell_08_sub
+        - path: rtsp://127.0.0.1:8554/MACCELL_08_sub
           input_args: preset-rtsp-restream
           roles:
             - detect

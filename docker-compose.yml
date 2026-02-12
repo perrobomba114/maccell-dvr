@@ -21,7 +21,7 @@ services:
       - "8554:8554"
       - "8555:8555"
       - "8555:8555/udp"
-      - "1984:1984" # Para debug go2rtc si lo necesitas
+      - "1984:1984" # optional, very useful for go2rtc debugging
     environment:
       - FRIGATE_RTSP_PASSWORD=Cada0108
     networks:
